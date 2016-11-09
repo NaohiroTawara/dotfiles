@@ -1,0 +1,30 @@
+Host pcl
+  User         tawara
+  HostName     ssh.pcl.cs.waseda.ac.jp
+  IdentityFile ~/.ssh/id_rsa
+  Port 55821
+
+Host g01
+  User tawara
+  HostName g01
+  IdentityFile ~/.ssh/id_rsa
+  ProxyCommand ssh pcl -W %h:%p -p 55821
+
+Host g03
+  User tawara
+  HostName g03
+  IdentityFile ~/.ssh/id_rsa
+  ProxyCommand ssh pcl -W %h:%p -p 55821
+
+Host g04
+  User tawara
+  HostName g04
+  IdentityFile ~/.ssh/id_rsa
+  ProxyCommand ssh pcl -W %h:%p -p 55821
+
+Host g05
+  User tawara
+  HostName g05
+  IdentityFile ~/.ssh/id_rsa
+  ProxyCommand ssh pcl -W %h:%p -p 55821
+  
