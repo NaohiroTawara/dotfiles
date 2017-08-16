@@ -9,14 +9,18 @@ function scpleading_gpu2 {
   rsync  -auvzP  tawara@133.9.8.198:$1 $2
 };
 
+
 alias leading_dell1="ssh tawara@133.9.8.193"
 alias leading_dell2="ssh tawara@133.9.8.194"
 alias leading_dell3="ssh tawara@133.9.8.195"
 alias leading="ssh tawara@133.9.66.135"
 
 alias image="ssh -p 55821  133.9.14.115"
+alias port_forwarding_image="ssh -p 55821 -D 1080 -N -v 133.9.14.115"
+alias port_forwarding="ssh -p 55821 -D 1080 -N -v ssh.pcl.cs.waseda.ac.jp"
+alias koba="ssh -XC tawara@ssh.pcl.cs.waseda.ac.jp -p 55821"
 function scpkoba {
-  rsync -e "ssh -p 55821" -auvzP  ssh.pcl.cs.waseda.ac.jp:$1 $2
+    rsync -e "ssh -p 55821" -auvzP  ssh.pcl.cs.waseda.ac.jp:$1 $2
 };
 function scpkoba_in {
  rsync -e "ssh -p 55821" -auvzP  --include='*/' --include='$3' --exclude='*' ssh.pcl.cs.waseda.ac.jp:$1 $2
@@ -24,9 +28,11 @@ function scpkoba_in {
 function scpkobaup {
   rsync -e "ssh -p 55821" -auvzP  $1 ssh.pcl.cs.waseda.ac.jp:$2 
 };
-
+alias www-it="ssh w504290@www-it.sci.waseda.ac.jp"
+alias muse="ssh w504290@muse01.mse.waseda.ac.jp"
+alias scpwww-it=" rsync  -auvzP $1 w504290@www-it.sci.waseda.ac.jp:$2"
 alias svnadd="svn status | grep ^? | awk '{print $2}' | xargs svn add"
-alias koba="ssh tawara@ssh.pcl.cs.waseda.ac.jp -p 55821"
+
 
 alias matlab=" /Applications/MATLAB_R2013a_Student.app/bin/matlab -nodesktop -nojvm -nosplash"
 export svnserv=http://svn-gw.pcl.cs.waseda.ac.jp/svn/tawara/
@@ -123,3 +129,5 @@ function tmux_automatically_attach_session()
     fi
 }
 tmux_automatically_attach_session
+
+alias tmux-copy='tmux save-buffer - | reattach-to-user-namespace pbcopy'

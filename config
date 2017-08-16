@@ -4,9 +4,21 @@ Host pcl
   IdentityFile ~/.ssh/id_rsa
   Port 55821
 
+Host a01
+  User tawara
+  HostName a01
+  IdentityFile ~/.ssh/id_rsa
+  ProxyCommand ssh pcl -W %h:%p -p 55821
+  
 Host g01
   User tawara
   HostName g01
+  IdentityFile ~/.ssh/id_rsa
+  ProxyCommand ssh pcl -W  %h:%p -p 55821
+
+Host g02
+  User tawara
+  HostName g02
   IdentityFile ~/.ssh/id_rsa
   ProxyCommand ssh pcl -W %h:%p -p 55821
 
@@ -27,4 +39,17 @@ Host g05
   HostName g05
   IdentityFile ~/.ssh/id_rsa
   ProxyCommand ssh pcl -W %h:%p -p 55821
+
+Host g06
+  User tawara
+  HostName g06
+  IdentityFile ~/.ssh/id_rsa
+  ProxyCommand ssh pcl -W %h:%p -p 55821
+
+Host g07
+  User tawara
+  HostName g07
+  IdentityFile ~/.ssh/id_rsa
+  ProxyCommand ssh pcl -W %h:%p -p 55821
+  
   
